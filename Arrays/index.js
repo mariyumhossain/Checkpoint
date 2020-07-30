@@ -39,8 +39,8 @@ pushTrue([1,2,3]) ===> [1, 2, 3, 'last element']
 */
 
 function pushString(arr) {
-  // CODE HERE
-  console.log(arr);
+  arr[arr.length] = "last element"
+  return arr
 }
 
 /*
@@ -58,7 +58,8 @@ mutateZeroElem([1,2,3]) ===> [1, 2, 3, true]
 */
 
 function push(array, value) {
-  // CODE HERE
+  array[array.length] = value
+  return array
 }
 
 /*
@@ -80,7 +81,9 @@ true
 */
 
 function printElements(array) {
-  // CODE HERE
+  for (var i = 0; i < array.length; i++){
+    console.log(array[i])
+  }
 }
 
 /*
@@ -109,7 +112,25 @@ unique([1,2,3,2,3,2]) ===> [1, 2, 3];
 */
 
 function unique(array) {
-  // CODE HERE
+  var diff = []
+  
+  for (var i = 0; i < array.length; i++) {
+
+  var newArr = array[i]  
+  var inArray = true 
+      for (var j = 0; j < diff.length; j++) {
+      var newArr2 = diff[j]  
+        if (newArr === newArr2) {
+          inArray = false
+          break
+        }
+      }
+
+    if (inArray) {
+      diff.push(newArr)
+    }
+  }
+  return diff
 }
 
 /*
@@ -125,7 +146,14 @@ HINT USE AN INNER FOR-LOOP
 */
 
 function compare(array1, array2) {
-  // CODE HERE
+  for (var i = 0; i < array1.length; i++){
+    for(var j = 0; j < array2.length; j++){
+      if(array1[i]===array2[j]){
+        return true
+      }
+    }
+  }
+  return false
 }
 
 /*
@@ -141,7 +169,15 @@ compareArrays([1, 2, 3, 4], [1, 2]) ====> [1, 2]
 */
 
 function compareArrays(array1, array2) {
-  // CODE HERE
+  var newArr = []
+  for (var i = 0; i < array1.length; i++){
+    for (var j = 0; j < array2.length; j++){
+      if(array1[i]=== array2[j]){
+        newArr.push(array1[i])
+      }
+    }
+  }
+  return newArr
 }
 
 /*
@@ -156,7 +192,13 @@ compareArraysOpposite([1,2,3,4], [1,3]) ===> [2, 4]
 */
 
 function compareArraysOpposite(array1, array2) {
-  // CODE HERE
+  var newArr = []
+  for (var i = 0; i < array1.length; i++){
+        if (array1[i] != array2[i]){
+          newArr.push(array1[i])
+          }
+  }
+  return newArr
 }
 
 /*
@@ -181,7 +223,8 @@ retrieveValue(twoDimentionArray, 3, 1) ===> 1
 */
 
 function retrieveValue(arr, row, col) {
-  // CODE HERE
+  var outerArr = arr[row][col]
+  return outerArr
 }
 
 /*
@@ -211,7 +254,17 @@ createTwoDArray(3, 5) ===> [
 */
 
 function createTwoDArray(row, col) {
-  // CODE HERE
+  var grid = []
+
+  for(var i = 0; i < row; i++){
+    var newArr = []
+    for(var j=0; j < col; j++){
+      newArr.push(0)
+    }
+      grid.push(newArr)
+  }
+
+  return grid
 }
 
 /*
